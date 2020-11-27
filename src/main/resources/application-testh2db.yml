@@ -1,0 +1,4 @@
+server:
+  port: 7000
+my:
+  greeting1: Hello World From Test Properties

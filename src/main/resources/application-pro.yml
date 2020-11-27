@@ -1,0 +1,4 @@
+server:
+  port: 7171
+my:
+  greeting: Hello World From Pro Properties
