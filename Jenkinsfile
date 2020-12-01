@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Docker Run'){
                   steps{
+                       sh 'sudo systemctl restart docker'
                        sh 'docker run -d -p 8081:8080 kathir:22'
                   }
 
