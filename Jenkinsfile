@@ -18,7 +18,7 @@ pipeline {
                        sh 'docker run -d -p 8081:7000 kathir:22'
                   }
 
-                }
+        }
 
     }
 }
