@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Maven Build') {
             steps {
-               sh 'mvn install'
-            }
+
+                  withMaven(maven : 'maven_3.6.3') {
+                                 sh 'mvn install'
+                  }
         }
         stage('Docker build'){
           steps{
