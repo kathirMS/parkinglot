@@ -4,6 +4,7 @@ pipeline {
         stage('test'){
           steps{
               sh 'pwd'
+              sh 'echo "${asss}" '
               sh 'ls'
           }
         }
