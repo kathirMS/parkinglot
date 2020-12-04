@@ -1,4 +1,4 @@
 server:
   port: 7171
 my:
-  greeting: HelloWorld From Pro Properties port number 7171
+  greeting: HelloWorld From Pro Properties
