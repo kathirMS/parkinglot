@@ -26,6 +26,12 @@ pipeline {
            }
 
         }
+        stage('GMail'){
+           steps{
+                emailext body: 'Hai kathir successfully deployed the application', subject: 'From Jenkins', to: 'kathirvelmuthusamy96@gmail.com'
+           }
+
+        }
 
     }
 }
