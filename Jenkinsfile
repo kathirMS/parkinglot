@@ -4,7 +4,7 @@ pipeline {
         stage('test'){
           steps{
               sh 'pwd'
-              sh 'echo "${asss}" '
+              sh 'echo "${name}" '
               sh 'ls'
           }
         }
@@ -24,7 +24,7 @@ pipeline {
                sh 'sudo systemctl restart docker'
                sh 'docker run -d -p 8081:7000 kathir:22'
            }
-
+ sdo systemctl restart do
         }
         stage('GMail'){
            steps{
