@@ -1,13 +1,7 @@
 pipeline {
     agent {label 'slave2'}
     stages {
-        stage('test'){
-          steps{
-              sh 'pwd'
-              sh 'echo "${name}" '
-              sh 'ls'
-          }
-        }
+
         stage('Maven Build') {
             steps {
                 sh 'mvn install'
@@ -15,7 +9,7 @@ pipeline {
         }
         stage('Docker build'){
           steps{
-               sh 'docker build -t kathir:22 .'
+               sh 'docker build -t kathir:22 --build-arg profile="${profile}" .'
           }
 
         }
