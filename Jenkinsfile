@@ -19,7 +19,7 @@ pipeline {
                sh 'docker run -d -p 8081:"${continer_port}" kathir:22'
            }
         }
-          node {
+          agent {
              stage('Push image') {
                       def app = docker.build("6383943367/build1")
                       docker.withRegistry('https://registry.hub.docker.com', '89933921-ac8e-41a0-89be-0e6d70af41bd') {
@@ -27,7 +27,7 @@ pipeline {
                       app.push("latest")
                       }
                          echo "Trying to Push Docker Build to DockerHub"
-              }
+             }
           }
 
         stage('GMail'){
