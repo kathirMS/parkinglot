@@ -9,28 +9,17 @@ pipeline {
         }
         stage('Docker build'){
           steps{
-               sh 'docker build -t kathir:22 --build-arg profile="${profile}" .'
+               sh 'docker build -t parkinglotproblem:v1.0.1 --build-arg profile="${profile}" .'
           }
 
         }
-        stage('Docker Run'){
+        stage('Push the image to ECR'){
            steps{
-               sh 'sudo systemctl restart docker'
-               sh 'docker run -d -p 8081:"${continer_port}" kathir:22'
+               sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 071107458435.dkr.ecr.us-east-1.amazonaws.com'
+               sh 'docker tag parkinglotproblem:v1.0.1 071107458435.dkr.ecr.us-east-1.amazonaws.com/demorepo:latest'
+               sh 'docker push 071107458435.dkr.ecr.us-east-1.amazonaws.com/demorepo:latest'
            }
         }
-        stage('docker push to docker hub') {
-           steps {
-              script {
-                  def app = docker.build("6383943367/build1")
-                               docker.withRegistry('https://registry.hub.docker.com', '89933921-ac8e-41a0-89be-0e6d70af41bd') {
-                               app.push("${env.BUILD_NUMBER}")
-                               app.push("latest")
-
-                  }
-              }
-           }
-       }
 
         stage('GMail'){
            steps{
