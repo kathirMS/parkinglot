@@ -15,9 +15,9 @@ pipeline {
         }
         stage('Push the image to ECR'){
            steps{
-               sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 071107458435.dkr.ecr.us-east-1.amazonaws.com'
-               sh 'docker tag parkinglotproblem:v1.0.1 071107458435.dkr.ecr.us-east-1.amazonaws.com/parkinglot:latest'
-               sh 'docker push 071107458435.dkr.ecr.us-east-1.amazonaws.com/parkinglot:latest'
+               sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z8t7h8q9'
+               sh 'docker tag parkinglotproblem:v1.0.1 public.ecr.aws/z8t7h8q9/parkinlotpublicrepo:latest'
+               sh 'docker push public.ecr.aws/z8t7h8q9/parkinlotpublicrepo:latest'
            }
         }
 
