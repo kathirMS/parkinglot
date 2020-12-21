@@ -10,7 +10,7 @@ public class FirstTest {
     @Test
     public void addIntegers() {
         Controller controller=new Controller();
-        assertEquals(controller.testString(), "ExampleTest Successfully complete");
+        assertEquals(controller.testString(), "ExampleTest Successfully completed");
     }
 
 }
