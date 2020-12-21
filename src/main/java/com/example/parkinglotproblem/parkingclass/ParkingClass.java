@@ -16,3 +16,4 @@ public class ParkingClass {
     private Integer vane;
 
 }
+

@@ -63,4 +63,8 @@ public class Controller {
     public String getString1(){
         return string1;
     }
+
+    public String testString(){
+        return "ExampleTest Successfully completed";
+    }
 }
