@@ -7,11 +7,7 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        stage ('Test'){
-            steps {
-               sh 'mvn test'
-            }
-        }
+
         stage('Docker build'){
           steps{
                sh 'docker build -t parkinglotproblem:v1.0.1 --build-arg profile="${profile}" .'
