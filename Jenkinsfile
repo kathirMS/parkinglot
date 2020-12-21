@@ -7,7 +7,7 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        stage('Maven Build') {
+        stage('Test') {
             steps {
                  sh 'mvn test'
             }
