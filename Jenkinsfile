@@ -7,6 +7,11 @@ pipeline {
                 sh 'mvn install'
             }
         }
+        stage('Maven Build') {
+            steps {
+                 sh 'mvn test'
+            }
+         }
 
         stage('Docker build'){
           steps{
