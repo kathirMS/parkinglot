@@ -32,6 +32,13 @@ pipeline {
            }
         }
 
+        stage('deploy in k8s'){
+                   steps{
+                        sh 'sudo ./pod-exe-file.sh'
+                   }
+
+        }
+
         stage('Sent Success Massage To GMail '){
            steps{
                 emailext body: 'Hai kathir successfully deployed the application', subject: 'From Jenkins', to: 'kathirvelmuthusamy96@gmail.com'
