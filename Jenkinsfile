@@ -9,9 +9,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                 sh 'mvn test'
+                 sh 'mvn test'push
             }
-
+            post {
+                 always {
+                        junit '**/target/surefire-reports/TEST-*.xml'
+                 }
+            }
         }
 
         stage('Docker build'){
