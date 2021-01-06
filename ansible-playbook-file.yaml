@@ -1,0 +1,16 @@
+---
+- hosts: minikube
+  remote_user: ubuntu
+  gather_facts: false
+  tasks:
+
+    - name: delete_file
+      command: sudo rm /home/ubuntu/dep.yaml
+    - name: copy_file
+      copy:
+        src: /home/ubuntu/slave3/workspace/Pipeline/dep.yaml
+        dest: /home/ubuntu/
+    - name: command1
+      command: sudo kubectl delete pod parking
+    - name: command2
+      command: sudo kubectl apply -f dep.yaml

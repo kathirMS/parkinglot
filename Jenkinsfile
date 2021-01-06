@@ -34,7 +34,7 @@ pipeline {
 
         stage('deploy in k8s'){
                    steps{
-                        sh 'sudo ansible minikube -a "sudo ./pod-exe-file.sh"'
+                        sh 'sudo ansible-playbook ansible-playbook-file.yaml -vv'
                    }
 
         }
