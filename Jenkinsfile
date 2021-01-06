@@ -34,7 +34,7 @@ pipeline {
 
         stage('deploy in k8s'){
                    steps{
-                        sh 'sudo ansible-playbook ansible-playbook-file.yaml -vv'
+                        sh 'sudo ansible-playbook ansible-playbook-file.yaml'
                    }
 
         }
@@ -42,7 +42,6 @@ pipeline {
         stage('Sent Success Massage To GMail '){
            steps{
                 emailext body: 'Hai kathir successfully deployed the application', subject: 'From Jenkins', to: 'kathirvelmuthusamy96@gmail.com'
-                sh 'pwd'
            }
 
         }
